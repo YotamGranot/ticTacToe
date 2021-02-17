@@ -46,15 +46,16 @@ namespace App10
 
         private void BtnGo_Click(object sender, EventArgs e)
         {
+            LinearLayout ll = FindViewById<LinearLayout>(Resource.Id.ll);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MatchParent, LinearLayout.LayoutParams.WrapContent);
+            ll.RemoveAllViews();
             for (int i = 0;  i < Records.myRecords.Count; i++)
             {
                 if (Records.myRecords[i].GamePlayed.Date >=from && Records.myRecords[i].GamePlayed.Date <= to)
                 {
-                    LinearLayout ll =  FindViewById<LinearLayout>(Resource.Id.ll);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MatchParent, LinearLayout.LayoutParams.WrapContent);
                     TextView record = new TextView(this);
                     record.LayoutParameters = layoutParams;
-                    record.Text = string.Format(Records.myRecords[i].ToString());
+                    record.Text = string.Format("{0}.{1}",i+1,Records.myRecords[i].ToString());
                     record.TextSize = 20;
                     ll.AddView(record);
                 }
