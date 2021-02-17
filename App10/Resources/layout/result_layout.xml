@@ -29,30 +29,30 @@
                 android:id="@+id/btnTo"
                 android:textSize="40dp"
                 android:layout_margin="10dp"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Go"
-                android:id="@+id/btnGo"
-                android:textSize="40dp"
-                android:layout_margin="10dp"
-                />
+            
             
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+            
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Exit"
-                android:id="@+id/btnExitResult"
+                android:text="Go"
+                android:id="@+id/btnGo"
                 android:textSize="40dp"
                 android:layout_margin="10dp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="left"
+                />
+            <Button
+                android:id="@+id/btnExitRecord"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="right"
+                android:text="Exit"
+                android:textSize="40dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"

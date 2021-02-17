@@ -30,7 +30,13 @@ namespace App10
             res.Click += Res_Click; ; 
             ll = FindViewById<LinearLayout>(Resource.Id.linearLayout1);
             sp = this.GetSharedPreferences("details", Android.Content.FileCreationMode.Private);
-            Records.initRecords(sp);
+            //sp.Edit().Clear();
+            //sp.Edit().Commit();
+            string str = sp.GetString("records",null);
+            if (str != null) {
+                Records.initRecords(sp);
+            }
+            
         }
 
         private void Res_Click(object sender, System.EventArgs e)
@@ -66,14 +72,14 @@ namespace App10
                     d.SetTitle(string.Format("{0} won", winner));
                     if (winner == "x")
                     {
-                        Records.enterRecord(System.DateTime.Now, 2);
+                        Records.enterRecord(System.DateTime.Today, 2);
                         Records.saveRecords(sp);
                     }
                 }
                 else
                 {
                     d.SetTitle("it's a draw!!!");
-                    Records.enterRecord(System.DateTime.Now, 3);
+                    Records.enterRecord(System.DateTime.Today, 3);
                     Records.saveRecords(sp);
                 }
                 if (requestCode == 0)
@@ -84,7 +90,7 @@ namespace App10
                     yes.Click += Yes_Click_two;
                     if (winner == "circle")
                     {
-                        Records.enterRecord(System.DateTime.Now, 1);
+                        Records.enterRecord(System.DateTime.Today, 1);
                         Records.saveRecords(sp);
                     }
                 }
@@ -96,7 +102,7 @@ namespace App10
                     yes.Click += Yes_Click_one;
                     if (winner == "circle")
                     {
-                        Records.enterRecord(System.DateTime.Now, 0);
+                        Records.enterRecord(System.DateTime.Today, 0);
                         Records.saveRecords(sp);
                     }
                 }

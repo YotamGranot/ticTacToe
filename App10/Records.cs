@@ -31,6 +31,7 @@ namespace App10
             string jstring = JsonConvert.SerializeObject(myRecords);
             var editor = sp.Edit();
             editor.PutString("records", jstring);
+            editor.Commit();
 
         }
         public static void initRecords(Android.Content.ISharedPreferences sp)
@@ -50,5 +51,39 @@ namespace App10
         }
         public DateTime GamePlayed { get; set; }
         public Users UserWon { get; set; }
+        public override string ToString()
+        {
+            string user = "";
+            switch (UserWon)
+            {
+                case Users.computer:
+                    {
+                        user = "computer";
+                        break;
+                    }
+                case Users.circle:
+                    {
+                        user = "circle";
+                        break;
+                    }
+                case Users.ex:
+                    {
+                        user = "X";
+                        break;
+                    }
+                case Users.draw:
+                    {
+                        return "Date: " + GamePlayed.ToString() + " game was drawn";
+                        
+                    }
+                default:
+                    {
+                        user = "";
+                        break;
+                    }
+
+            }
+            return "Date: " + GamePlayed.ToString() + " " +user +" won";
+        }
     }
 }
